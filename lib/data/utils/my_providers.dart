@@ -5,7 +5,7 @@ class MyProviders {
   static List<BlocProvider> initialize() {
     return [
       BlocProvider<ChatCubit>(
-        create: (context) => ChatCubit(),
+        create: (context) => ChatCubit([]),
       ),
 
     ];
