@@ -2,6 +2,7 @@ import 'package:demo_app/View/screens/chat_screen/components/chat_card.dart';
 import 'package:demo_app/View/screens/chat_screen/components/chat_text_area.dart';
 import 'package:demo_app/View/screens/chat_screen/components/receiver_chat_widget.dart';
 import 'package:demo_app/View/screens/chat_screen/components/sender_chat_widget.dart';
+import 'package:demo_app/View/widgets/my_text.dart';
 import 'package:demo_app/controllers/cubits/chat_cubit/chat_cubit.dart';
 import 'package:demo_app/data/models/chat_model.dart';
 import 'package:demo_app/data/utils/app_images.dart';
@@ -53,86 +54,6 @@ class _ChatScreenState extends State<ChatScreen> {
                 children: [
                   AppBarChat(),
 
-                  // Expanded(child: BlocBuilder<ChatCubit, List<ChatModel>>(
-                  //   builder: (context, state) {
-                  //     return GroupedListView<ChatModel, DateTime>(
-                  //       elements: state, groupBy: (ChatModel element) {
-                  //       DateTime dateTime = element.dateTime;
-                  //
-                  //       String formattedDate =
-                  //       DateFormat("dd MMM yyyy").format(dateTime);
-                  //
-                  //       return DateTime.parse(
-                  //           formattedDate);
-                  //     },
-                  //
-                  //       groupSeparatorBuilder:
-                  //           (DateTime date) {
-                  //         Duration difference = date
-                  //             .difference(DateTime.now());
-                  //         int daysDifference =
-                  //             difference.inDays;
-                  //
-                  //         DateFormat dayNameFormat =
-                  //         DateFormat('EEEE');
-                  //         String dayName =
-                  //         dayNameFormat.format(date);
-                  //
-                  //         return Container(
-                  //           height: 24.0.h,
-                  //           width: 100.w,
-                  //           margin: EdgeInsets
-                  //               .symmetric(
-                  //               horizontal:
-                  //               0.3.sw),
-                  //           decoration:
-                  //           BoxDecoration(
-                  //             borderRadius:
-                  //             BorderRadius
-                  //                 .circular(
-                  //                 3.0),
-                  //             color: const Color(
-                  //                 0xFFE8E8E8),
-                  //           ),
-                  //           child: Center(
-                  //             child: Text(
-                  //               DateFormat('dd MMM yyyy').format(
-                  //                   date) ==
-                  //                   DateFormat('dd MMM yyyy').format(
-                  //                       DateTime
-                  //                           .now())
-                  //                   ? 'Today'
-                  //                   : daysDifference <
-                  //                   6
-                  //                   ? dayName
-                  //                   :  DateFormat('dd MMM yyyy')
-                  //                   .format(
-                  //                   date),
-                  //               style: GoogleFonts
-                  //                   .cairo(
-                  //                 fontSize: 10.0.sp,
-                  //                 color:
-                  //                 Colors.black,
-                  //                 letterSpacing:
-                  //                 0.07142857074737549,
-                  //               ),
-                  //             ),
-                  //           ),
-                  //         );
-                  //       },                      itemBuilder: (context,element){
-                  //       return element.isMe ? ReceiverChatWidget(
-                  //         message:element.message,) :
-                  //
-                  //       SenderChatWidget(image: element.image,
-                  //           name: element.name,
-                  //           text: element.message,
-                  //           nameColor: element.color)
-                  //       ;
-                  //     },
-                  //     );
-                  //   },
-                  //
-                  // ),),
                   Expanded(
                     child: BlocBuilder<ChatCubit, List<ChatModel>>(
                       builder: (context, state) {
@@ -170,16 +91,11 @@ class _ChatScreenState extends State<ChatScreen> {
                                       horizontal: 12,
                                       vertical: 4,
                                     ),
-                                    decoration: BoxDecoration(
-                                      color: Colors.grey[300],
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                    child: Text(
+                                    child: MyText(
                                       _formatDate(nextDate),
-                                      style: TextStyle(
-                                        color: Colors.black87,
+                                        color: Color(0xff0C201D),
+                                        fontWeight: FontWeight.w600,
                                         fontSize: 12,
-                                      ),
                                     ),
                                   ),
                                 ),
