@@ -23,9 +23,11 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+  ScrollController controller  = ScrollController();
   @override
   void initState() {
     context.read<ChatCubit>().refreshChatList();
+    
     // TODO: implement initState
     super.initState();
   }
@@ -55,9 +57,10 @@ class _ChatScreenState extends State<ChatScreen> {
                   AppBarChat(),
 
                   Expanded(
-                    child: BlocBuilder<ChatCubit, List<ChatModel>>(
+                    child: BlocConsumer<ChatCubit, List<ChatModel>>(
                       builder: (context, state) {
                         return ListView.separated(
+                          controller: controller,
                           padding: EdgeInsets.symmetric(horizontal: 16.sp),
                           itemCount: state.length,
                           itemBuilder: (context, index) {
@@ -105,7 +108,11 @@ class _ChatScreenState extends State<ChatScreen> {
                             }
                           },
                         );
-                      },
+                      }, listener: (BuildContext context, List<ChatModel> state) { 
+                        if(state.isNotEmpty){
+                          controller.jumpTo(controller.position.maxScrollExtent);
+                        }
+                    },
                     ),
                   ),
 

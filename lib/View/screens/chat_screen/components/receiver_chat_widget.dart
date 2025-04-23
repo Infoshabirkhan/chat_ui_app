@@ -24,6 +24,8 @@ class ReceiverChatWidget extends StatelessWidget {
           border: Border.all(color: Color.fromRGBO(166, 233, 219, 1)),
           color: Color.fromRGBO(252, 200, 95, 1)),
       child: Column(
+        // mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           MyText(
             message,
