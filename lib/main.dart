@@ -26,13 +26,6 @@ class MyApp extends StatelessWidget {
 
               theme: ThemeData(
 
-                // primaryColor: (state is AppConfigurationLoaded &&
-                //         state.color != null)
-                //     ? Color(int.parse(state.color!.replaceFirst('#', '0xff')))
-                //     : AppColors.darkBlue,
-
-                // primarySwatch: Colors.blue,
-
                 fontFamily: 'cairo',
                 scaffoldBackgroundColor: Color(0xfff7f7f7),
               ),
